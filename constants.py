@@ -1,5 +1,6 @@
 import pygame
 
+pygame.font.init()
 IMAGES = "images"
 FPS = 60
 
@@ -29,3 +30,11 @@ GOAL_SIZE = (125, 370)
 GOAL_POSITION = ((25, FIELD_LEVEL+7), (FIELD_SIZE[0]-25-GOAL_SIZE[0], FIELD_LEVEL+7))   # offset to set goal to field_level, not the image
 GOAL_COLLISION_SIZE = (25, 290)
 GOAL_COLLISION_POSITION = ((40, FIELD_LEVEL), (FIELD_SIZE[0]-40-25, FIELD_LEVEL))
+
+SCOREBOARD_IMAGE = "head_soccer_scoreboard.png"
+SCOREBOARD_SIZE = (300, 250)
+SCOREBOARD_POSITION = (810, 400)
+
+FONT = pygame.font.SysFont("ROGFonts", 75)
+WHITE = (255, 255, 255)
+

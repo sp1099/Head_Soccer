@@ -6,6 +6,7 @@ from constants import *
 from player import Player
 from ball import Ball
 from goal import Goal
+from scoreboard import Scoreboard
 from helper_sprites import Field_Level, Goal_Collision
 
 
@@ -25,6 +26,8 @@ class Game_Manager:
         self.player2_score = 0
 
         self.all_sprites = pygame.sprite.Group()
+        self.scoreboard = Scoreboard()
+        self.all_sprites.add(self.scoreboard)
         self.player1 = Player(0)
         self.all_sprites.add(self.player1)
         self.player2 = Player(1)
@@ -77,7 +80,7 @@ class Game_Manager:
             goal_collision_list = pygame.sprite.spritecollide(self.ball, self.goal_sprites, False)
             if goal_collision_list:
                 for goal in goal_collision_list:
-                    self.ball.goal_collision(goal)
+                    self.ball.goal_collision(goal, self.scoreboard)
 
             self.update_sprites()
 
@@ -89,3 +92,4 @@ class Game_Manager:
     def update_sprites(self):
         self.player_sprites.update()
         self.ball.update()
+        self.scoreboard.update(self.field)

@@ -38,13 +38,14 @@ class Ball(pygame.sprite.Sprite):
         else:
             self.speedy = -int(self.speedy * 0.75)
 
-
-    def goal_collision(self, goal):
+    def goal_collision(self, goal, scoreboard):
         if goal.goal_num == 0:
             self.game.player1_score += 1
         else:
             self.game.player2_score += 1
+        scoreboard.update_scoreline(self.game.player1_score, self.game.player2_score)
         self.rect.bottomleft = BALL_START_POSITION
+
         self.game.player1.rect.bottomleft = PLAYER_START_POSITION[self.game.player1.player_num]
         self.game.player2.rect.bottomleft = PLAYER_START_POSITION[self.game.player2.player_num]
         self.speedx = 0
