@@ -7,6 +7,7 @@ from player import Player
 from ball import Ball
 from goal import Goal
 from scoreboard import Scoreboard
+from shoe import Shoe
 from helper_sprites import Field_Level, Goal_Collision
 
 
@@ -32,6 +33,10 @@ class Game_Manager:
         self.all_sprites.add(self.player1)
         self.player2 = Player(1)
         self.all_sprites.add(self.player2)
+        self.shoe1 = Shoe(0)
+        self.all_sprites.add(self.shoe1)
+        self.shoe2 = Shoe(1)
+        self.all_sprites.add(self.shoe2)
         self.ball = Ball(self)
         self.all_sprites.add(self.ball)
         self.goal1 = Goal(0)
@@ -53,6 +58,10 @@ class Game_Manager:
         self.goal_sprites.add(self.goal1_col)
         self.goal_sprites.add(self.goal2_col)
 
+        self.shoe_sprites = pygame.sprite.Group()
+        self.shoe_sprites.add(self.shoe1)
+        self.shoe_sprites.add(self.shoe2)
+
         self.field_level_sprites = pygame.sprite.Group()
         self.field_level_sprites.add(self.surface)
 
@@ -68,10 +77,18 @@ class Game_Manager:
             for sprite in self.player_sprites:
                 sprite.event_handler()
 
+            for sprite in self.shoe_sprites:
+                sprite.event_handler()
+
             player_collision_list = pygame.sprite.spritecollide(self.ball, self.player_sprites, False)
             if player_collision_list:
                 for player in player_collision_list:
                     self.ball.player_collision(player)
+
+            shoe_collision_list = pygame.sprite.spritecollide(self.ball, self.shoe_sprites, False)
+            if shoe_collision_list:
+                for shoe in shoe_collision_list:
+                    self.ball.shoe_collision(shoe)
 
             surface_collision_list = pygame.sprite.spritecollide(self.ball, self.field_level_sprites, False)
             if surface_collision_list:
@@ -91,5 +108,6 @@ class Game_Manager:
 
     def update_sprites(self):
         self.player_sprites.update()
+        self.shoe_sprites.update()
         self.ball.update()
         self.scoreboard.update(self.field)

@@ -20,6 +20,11 @@ JUMP_KEY = (pygame.K_UP, pygame.K_w)
 LEFT_KEY = (pygame.K_LEFT, pygame.K_a)
 RIGHT_KEY = (pygame.K_RIGHT, pygame.K_d)
 
+SHOE_IMAGE = "head_soccer_shoe.jpeg"
+SHOE_SIZE = (60, 30)
+SHOE_START_POSITION = ((1600, FIELD_LEVEL), (320, FIELD_LEVEL))
+SHOT_KEY = (pygame.K_p, pygame.K_SPACE)
+
 BALL_IMAGE = "head_soccer_ball.png"     #link: https://opengameart.org/content/soccer-ball
 BALL_SIZE = (50, 50)
 BALL_START_POSITION = (FIELD_SIZE[0]/2, FIELD_SIZE[1]/3)
