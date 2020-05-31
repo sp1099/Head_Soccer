@@ -37,6 +37,9 @@ class Player(pygame.sprite.Sprite):
                 self.rect.bottom = FIELD_LEVEL
                 self.is_jumping = False
 
+    def draw(self, field):
+        field.blit(self.image, self.rect)
+
     def player_collide(self, player):
         if (self.rect.right > player.rect.right) and (self.rect.left - player.rect.right < 0) and self.rect.bottom > player.rect.top + 15 and player.rect.bottom > self.rect.top + 15 and self.speedx <= 0:
             self.notLeft = True

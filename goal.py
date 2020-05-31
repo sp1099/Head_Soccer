@@ -23,5 +23,5 @@ class Goal(pygame.sprite.Sprite):
     def update(self):
         pass
 
-    def event_handler(self):
-        pass
+    def draw(self, field):
+        field.blit(self.image, self.rect)

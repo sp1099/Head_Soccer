@@ -51,3 +51,5 @@ class Shoe(Player):
                 self.rect.right -= 25
             self.move = False
 
+    def draw(self, field):
+        field.blit(self.image, self.rect)
