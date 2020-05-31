@@ -32,6 +32,9 @@ class Player(pygame.sprite.Sprite):
                 self.rect.bottom = FIELD_LEVEL
                 self.is_jumping = False
 
+    def draw(self, field):
+        field.blit(self.image, self.rect)
+
     def event_handler(self):
         self.speedx = 0
         keystate = pygame.key.get_pressed()
