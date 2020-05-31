@@ -15,7 +15,8 @@ class Shoe(Player):
         self.is_jumping = False
         self.move = False
         self.shot = False
-
+        self.notLeft = False
+        self.notRight = False
         self.image = pygame.image.load(os.path.join(IMAGES, SHOE_IMAGE))  # https://pixabay.com/de/photos/nike-fussballschuhe-fussball-sport-1271624/
         self.image = pygame.transform.scale(self.image, SHOE_SIZE)
         if self.player_num == 0:
@@ -25,6 +26,12 @@ class Shoe(Player):
 
         self.speedx = 0
         self.speedy = 0
+
+    def shoe_collide(self, player):
+        self.notLeft = player.notLeft
+        self.notRight = player.notRight
+        self.noJump = player.noJump
+        self.speedy = player.speedy
 
     def event_handler(self):
         self.shot = False

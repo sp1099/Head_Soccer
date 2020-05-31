@@ -74,16 +74,22 @@ class Game_Manager:
                 if event.type == pygame.QUIT:
                     sys.exit()
 
+            player_collision_list = pygame.sprite.spritecollide(self.ball, self.player_sprites, False)
+            if player_collision_list:
+                for player in player_collision_list:
+                    self.ball.player_collision(player)
+
+            player_collide = self.player1.rect.colliderect(self.player2.rect)
+            if player_collide:
+                self.player1.player_collide(self.player2)
+                self.shoe1.shoe_collide(self.player1)
+                self.shoe2.shoe_collide(self.player2)
+
             for sprite in self.player_sprites:
                 sprite.event_handler()
 
             for sprite in self.shoe_sprites:
                 sprite.event_handler()
-
-            player_collision_list = pygame.sprite.spritecollide(self.ball, self.player_sprites, False)
-            if player_collision_list:
-                for player in player_collision_list:
-                    self.ball.player_collision(player)
 
             shoe_collision_list = pygame.sprite.spritecollide(self.ball, self.shoe_sprites, False)
             if shoe_collision_list:
