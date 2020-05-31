@@ -3,7 +3,7 @@ import pygame
 pygame.font.init()
 IMAGES = "images"
 FPS = 60
-GAME_LENGTH = 25
+GAME_LENGTH = 22250
 
 FIELD_SIZE = (1920, 1080)
 FIELD_LEVEL = 900
@@ -36,12 +36,12 @@ SHOT_KEY = (pygame.K_p, pygame.K_SPACE)
 BALL_IMAGE = "head_soccer_ball.png"     #link: https://opengameart.org/content/soccer-ball
 BALL_SIZE = (50, 50)
 BALL_START_POSITION = (FIELD_SIZE[0]/2, FIELD_SIZE[1]/3)
-BALL_MAX_SPEED = 50
+BALL_MAX_SPEED = 30
 
 GOAL_IMAGE = "head_soccer_goal.png"
 GOAL_SIZE = (125, 370)
 GOAL_POSITION = ((25, FIELD_LEVEL+7), (FIELD_SIZE[0]-25-GOAL_SIZE[0], FIELD_LEVEL+7))   # offset to set goal to field_level, not the image
-GOAL_COLLISION_SIZE = (25, 290)
+GOAL_COLLISION_SIZE = (25, 310)
 GOAL_COLLISION_POSITION = ((40, FIELD_LEVEL), (FIELD_SIZE[0]-40-25, FIELD_LEVEL))
 
 SCOREBOARD_IMAGE = "head_soccer_scoreboard.png"

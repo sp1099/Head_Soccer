@@ -37,16 +37,14 @@ class Ball(pygame.sprite.Sprite):
         if player.rect.collidepoint(self.rect.midbottom) is not player.rect.collidepoint(self.rect.midtop):
             if player.rect.collidepoint(self.rect.midbottom):
                 self.rect.bottom = player.rect.top - 5
-                if self.rect.midbottom > player.rect.midtop:
-                    self.speedx *= -0.9
-                    if self.speedx == 0:
-                        self.speedx = 5
-                elif self.rect.midbottom < player.rect.midtop:
-                    self.speedx *= -0.9
-                    if self.speedx == 0:
-                        self.speedx = -5
-                self.speedy = abs(self.speedy) * -0.75
-                print("bug1")
+                if self.rect.center > player.rect.center and self.speedx == 0:
+                    self.speedx = -5
+                elif self.rect.center < player.rect.center and self.speedx == 0:
+                    self.speedx = 5
+                if player.speedy < 0:
+                    self.speedy = abs(self.speedy) * - 0.75 - 10
+                else:
+                    self.speedy = abs(self.speedy) * - 0.75
             elif player.rect.collidepoint(self.rect.midtop) and self.rect.midbottom > player.rect.midbottom:
                 self.rect.left = player.rect.right + 5
                 self.speedx += 5
@@ -55,30 +53,26 @@ class Ball(pygame.sprite.Sprite):
                 self.rect.right = player.rect.left - 5
                 self.speedx -= 5
                 self.speedy = 20
-            print("bug2")
         else:
             if player.rect.right - 20 < self.rect.right and not player.rect.collidepoint(self.rect.midtop):
                 self.rect.left = player.rect.right + 5
             elif player.rect.left + 20 > self.rect.left and not player.rect.collidepoint(self.rect.midtop):
                 self.rect.right = player.rect.left - 5
-                print("now")
         self.manipulate_speedx(player)
-        if abs(self.speedx) > 35 and self.rect.bottom < FIELD_LEVEL + 20:
-            self.speedy = abs(self.speedx / 2)
+        if abs(self.speedx) > 25 and self.rect.bottom > FIELD_LEVEL - 20:
+            self.speedy = abs(self.speedx)/2
 
     def draw(self, field):
         field.blit(self.image, self.rect)
-
-
 
     def shoe_collision(self, shoe):
         if shoe.shot:
             if shoe.player_num == 0:
                 self.speedy = 50
-                self.speedx -= 40
+                self.speedx -= 30
             else:
                 self.speedy = 50
-                self.speedx += 40
+                self.speedx += 30
         elif shoe.move:
             self.manipulate_speedx(shoe)
 
@@ -86,7 +80,7 @@ class Ball(pygame.sprite.Sprite):
         self.newGroundCollision = time.time()
         self.speedx *= 0.99
         self.time = self.newGroundCollision - self.lastGroundCollision
-        if 0.08 < self.time < 0.4 + self.speedx * 0.02 or (abs(self.speedy) < 7):
+        if 0.08 < self.time < 0.4 + self.speedx * 0.005 or (abs(self.speedy) < 7):
             self.speedy = 0
         else:
             self.speedy = -int(self.speedy * 0.75)
@@ -126,7 +120,7 @@ class Ball(pygame.sprite.Sprite):
             else:
                 self.speedx = -self.speedx + player.speedx
         else:
-            self.speedx = -self.speedx + player.speedx + self.sign(player.speedx) * 20
+            self.speedx = -(self.speedx) + player.speedx + self.sign(player.speedx) * 20
         if self.speedx > BALL_MAX_SPEED:
             self.speedx = BALL_MAX_SPEED
 
