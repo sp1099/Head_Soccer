@@ -18,7 +18,7 @@
 
 ## Frameworks
 
-Pygame was used as the framework for the Head-Soccer project. Here the sprite class plays an important role to easily detect the collision of two objects.
+Pygame was used as the framework for the Head-Soccer project. Here the sprite class plays an important role to easily detect the collision of two objects. It also allows to easily load image files and transform them, as well as position and display them on the screen. The pygame Clock Object furthermore keeps track of the FPS of the game.
 
 ## Start the game
 
@@ -33,3 +33,7 @@ To configure the game easily, there is the file "constants.py". This file contai
 ### Ball physic
 
 To make the game look realistic, a good implementation of the ball physics plays an important role. For this purpose, the ball has two variables for the speed in the X and Y direction. These values are changed accordingly when the ball collides with the ground, a player or the goal. How the speeds of the ball change depends on where the ball collides with the goal or the player and the speed at which the player moves. There are also values for gravity and friction, which influence the behaviour of the ball.
+
+## Credits
+
+@ Liam O'Meara (Goal Sprite)
