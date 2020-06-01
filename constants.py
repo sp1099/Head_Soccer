@@ -21,7 +21,7 @@ GREY = (175, 175, 175)
 IMAGES = "images"
 # Game Settings
 FPS = 60
-GAME_LENGTH = 12
+GAME_LENGTH = 180
 GRAVITY = 2
 
 # Field Settings
