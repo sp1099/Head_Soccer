@@ -1,5 +1,7 @@
 # Head_Soccer
 
+by 6182175 & 5929204
+
 ## Prerequisites
 
 - installed python (python 3.7 recommended)
