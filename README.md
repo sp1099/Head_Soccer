@@ -15,6 +15,7 @@
 - press "clone"
 - login to github
 - configure python interpreter
+- if pygame is not preinstalled it can also be installed via the package manager in PyCharm
 
 ## Frameworks
 
