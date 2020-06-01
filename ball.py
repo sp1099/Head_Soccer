@@ -241,11 +241,11 @@ class Ball(pygame.sprite.Sprite):
         """
         import sys
 
-        player.temp = ["speedx", sys.float_info.max]
-        ball.temp = [None, sys.float_info.max]
+        player.temp = [2.1, -1.7, 2.1, -1.7, "speedx", sys.float_info.max]
+        ball.temp = [-3.5, 5.9, 3.5, -5.9, None, sys.float_info.max]
         message = "New speedx value is {speedx}"
 
-        for i in range(0,1):
+        for i in range(6):
             player.speedx = player.temp[i]
             ball.speedx = self.temp[i]
             ball.manipulate_speedx(player)
@@ -294,7 +294,7 @@ class Ball(pygame.sprite.Sprite):
         #   num is zero
         #   num is complex
         """
-        num = ["num", 0, 2 + 3j]
+        num = [2.7, -5.3, "num", 0, 2 + 3j]
         message = "Return value of sign({num}) is {value}"
 
         for i in num:
