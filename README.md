@@ -16,6 +16,10 @@
 - login to github
 - configure python interpreter
 
+## Frameworks
+
+Pygame was used as the framework for the Head-Soccer project. Here the sprite class plays an important role to easily detect the collision of two objects.
+
 ## Start the game
 
 Run the project by running the file "head_soccer_main.py". Afterwards click the Button "Start the Game!" and the game will start immediately. The left-hand player can be moved by pressing the keys 'w', 'a' and 'd' and is able to shoot by pressing space. You can move the right-hand player by using the arrow keys. He will shoot after pressing 'p'.
