@@ -28,4 +28,4 @@ To configure the game easily, there is the file "constants.py". This file contai
 
 ### Ball physic
 
-To make the game look realistic, a good implementation of the ball physics plays an important role. For this purpose, the ball has two variables for the speed in the X and Y direction. These values are changed accordingly when the ball collides with the ground, a player or the goal. Furthermore gravity...
+To make the game look realistic, a good implementation of the ball physics plays an important role. For this purpose, the ball has two variables for the speed in the X and Y direction. These values are changed accordingly when the ball collides with the ground, a player or the goal. How the speeds of the ball change depends on where the ball collides with the goal or the player and the speed at which the player moves. There are also values for gravity and friction, which influence the behaviour of the ball.
