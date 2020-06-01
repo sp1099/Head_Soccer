@@ -298,7 +298,6 @@ class Ball(pygame.sprite.Sprite):
         """
         TESTFUNC:
         
-        num = ["num", 0, 2 + 3j]
         num = [2.7, -5.3, "num", 0, 2 + 3j]
         message = "Return value of sign({num}) is {value}"
 
