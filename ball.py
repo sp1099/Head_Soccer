@@ -243,11 +243,11 @@ class Ball(pygame.sprite.Sprite):
         
         import sys
 
-        player.temp = [0, 7.4, 2.1, -1.7, 2.1, -1.7, "speedx", sys.float_info.max]
-        ball.temp = [7.4, 0, -3.5, 5.9, 3.5, -5.9, None, sys.float_info.max]
+        player.temp = [0, 7.4, -7.4, 2.1, -1.7, 2.1, -1.7, "speedx", sys.float_info.max]
+        ball.temp = [7.4, 0, 0, -3.5, 5.9, 3.5, -5.9, None, sys.float_info.max]
         message = "New speedx value is {speedx}"
 
-        for i in range(6):
+        for i in range(9):
             player.speedx = player.temp[i]
             ball.speedx = self.temp[i]
             ball.manipulate_speedx(player)
