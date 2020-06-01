@@ -32,7 +32,6 @@ class Ball(pygame.sprite.Sprite):
         if self.rect.right < 0 or self.rect.left > 1920:
             self.reset_ball()
 
-
     def player_collision(self, player):
         if player.rect.collidepoint(self.rect.midbottom) is not player.rect.collidepoint(self.rect.midtop):
             if player.rect.collidepoint(self.rect.midbottom):
@@ -108,8 +107,28 @@ class Ball(pygame.sprite.Sprite):
         elif isinstance(crossbar, Crossbar_Collision_Top):
             self.speedy = -self.speedy * 0.75
 
-
     def manipulate_speedx(self, player):
+        #difficulty:
+        #   -player object has no member variable speedx
+        #   -wrong data types
+        #   -overflow
+        """
+        import sys
+
+        player.temp = ["speedx", sys.float_info.max]
+        ball.temp = [None, sys.float_info.max]
+        message = "New speedx value is {speedx}"
+
+        for i in range(0,1):
+            player.speedx = player.temp[i]
+            ball.speedx = self.temp[i]
+            ball.manipulate_speedx(player)
+            print(message.format(speedx = ball.speedx))
+
+        del player.speedx
+        ball.manipulate_speedx(player)
+        print(message.format(speedx = ball.speedx))
+        """
         if player.speedx == 0:
             self.speedx = -self.speedx * 0.9
         elif self.speedx == 0:
@@ -121,13 +140,25 @@ class Ball(pygame.sprite.Sprite):
                 self.speedx = -self.speedx + player.speedx
         else:
             self.speedx = -(self.speedx) + player.speedx + self.sign(player.speedx) * 20
-        if self.speedx > BALL_MAX_SPEED:
-            self.speedx = BALL_MAX_SPEED
+        if abs(self.speedx) > BALL_MAX_SPEED:
+            self.speedx = self.sign(self.speedx) * BALL_MAX_SPEED
 
     def manipulate_speedy(self, player):
         self.speedy = -int(self.speedy * 0.75) + abs(player.speedy)
 
     def sign(self, num):
+        #difficulty:
+        #   wrong data type
+        #   num is zero
+        #   num is complex
+        """
+        num = ["num", 0, 2 + 3j]
+        message = "Return value of sign({num}) is {value}"
+
+        for i in num:
+            result = ball.sign(i)
+            print(message.format(num = i, value = result))
+        """
         return (num//abs(num))
 
     def reset_ball(self):

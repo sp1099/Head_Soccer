@@ -3,7 +3,7 @@ import pygame
 pygame.font.init()
 IMAGES = "images"
 FPS = 60
-GAME_LENGTH = 22250
+GAME_LENGTH = 25
 
 FIELD_SIZE = (1920, 1080)
 FIELD_LEVEL = 900
@@ -55,7 +55,7 @@ CROSSBAR_FRONT_ROTATION = (53, -53)
 CROSSBAR_TOP_SIZE = (130, 10)
 CROSSBAR_TOP_POSITION = ((0, 540), (1920 - CROSSBAR_TOP_SIZE[0], 540))
 
-FONT = pygame.font.SysFont("ROGFonts", 75)
+FONT = pygame.font.SysFont("lkj", 75)
 FONT_CAPTION = pygame.font.SysFont("gillsansfett", 120)
 WHITE = (255, 255, 255)
 
