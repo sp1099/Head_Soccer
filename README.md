@@ -1,6 +1,6 @@
 # Head_Soccer
 
-by 6182175 & 5629204
+6182175 & 5629204
 
 ## Prerequisites
 
