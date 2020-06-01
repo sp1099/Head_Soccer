@@ -10,7 +10,7 @@ FIELD_LEVEL = 900
 FIELD_LEVEL_SIZE = (FIELD_SIZE[0], 50)
 FIELD_LEVEL_POSITION = (0, 900)
 GRAVITY = 2
-BACKGROUND_IMAGE = "head_soccer_stadium.jpg"    #link: https://www.pinterest.de/pin/717550153115081077/
+BACKGROUND_IMAGE = "head_soccer_stadium.jpg"    # link: https://www.pinterest.de/pin/717550153115081077/
 
 BUTTON_SIZE = (600, 100)
 BUTTON_POSITION = (FIELD_SIZE[0] / 2, FIELD_SIZE[1] / 2)
@@ -19,7 +19,8 @@ BUTTON_TEXT_POSITION = (760, 515)
 CAPTION_POSITION = (FIELD_SIZE[0] / 2, 250)
 RESULT_POSITION = (FIELD_SIZE[0] / 2, FIELD_SIZE[1] / 2)
 
-PLAYER_IMAGE = ("", "")
+PLAYER_IMAGE = ("head_soccer_player.png", "head_soccer_player.png")     # link: https://opengameart.org/content/football-sprite-based-on-lpc-set
+PLAYER_SHOT_IMAGE = ("head_soccer_player_shot.png", "head_soccer_player_shot.png")
 PLAYER_SIZE = (80, 150)
 PLAYER_START_POSITION = ((1600, FIELD_LEVEL), (300, FIELD_LEVEL))
 PLAYER_HOR_SPEED = 10
@@ -29,11 +30,11 @@ LEFT_KEY = (pygame.K_LEFT, pygame.K_a)
 RIGHT_KEY = (pygame.K_RIGHT, pygame.K_d)
 
 SHOE_IMAGE = "head_soccer_shoe.jpeg"
-SHOE_SIZE = (60, 30)
-SHOE_START_POSITION = ((1600, FIELD_LEVEL), (320, FIELD_LEVEL))
+SHOE_SIZE = (80, 30)
+SHOE_START_POSITION = ((1600, FIELD_LEVEL), (300, FIELD_LEVEL))
 SHOT_KEY = (pygame.K_p, pygame.K_SPACE)
 
-BALL_IMAGE = "head_soccer_ball.png"     #link: https://opengameart.org/content/soccer-ball
+BALL_IMAGE = "head_soccer_ball.png"     # link: https://opengameart.org/content/soccer-ball
 BALL_SIZE = (50, 50)
 BALL_START_POSITION = (FIELD_SIZE[0]/2, FIELD_SIZE[1]/3)
 BALL_MAX_SPEED = 30

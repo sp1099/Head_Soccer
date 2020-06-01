@@ -13,10 +13,14 @@ class Player(pygame.sprite.Sprite):
         self.player_num = player_num
         self.is_jumping = False
 
-        #self.image = pygame.image.load(os.path.join(IMAGES, PLAYER_IMAGE[self.player_num])).convert()
-        #self.image = pygame.transform.scale(self.image, PLAYER_SIZE)
-        self.image = pygame.Surface(PLAYER_SIZE)
-        self.image.fill((0, 0, 0))
+        self.idle_image = pygame.image.load(os.path.join(IMAGES, PLAYER_IMAGE[self.player_num]))
+        self.shot_image = pygame.image.load(os.path.join(IMAGES, PLAYER_SHOT_IMAGE[self.player_num]))
+        if self.player_num == 0:
+            self.idle_image = pygame.transform.flip(self.idle_image, True, False)
+            self.shot_image = pygame.transform.flip(self.shot_image, True, False)
+        self.idle_image = pygame.transform.scale(self.idle_image, PLAYER_SIZE)
+        self.shot_image = pygame.transform.scale(self.shot_image, PLAYER_SIZE)
+        self.image = self.idle_image
         self.rect = self.image.get_rect()
         self.rect.bottomleft = PLAYER_START_POSITION[self.player_num]
         self.notRight = False

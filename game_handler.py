@@ -38,9 +38,9 @@ class Game_Manager:
         self.player2 = Player(1)
         self.all_sprites.add(self.player2)
 
-        self.shoe1 = Shoe(0)
+        self.shoe1 = Shoe(0, self.player1)
         self.all_sprites.add(self.shoe1)
-        self.shoe2 = Shoe(1)
+        self.shoe2 = Shoe(1, self.player2)
         self.all_sprites.add(self.shoe2)
 
         self.ball = Ball(self)
