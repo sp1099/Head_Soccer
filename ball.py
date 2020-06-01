@@ -239,6 +239,8 @@ class Ball(pygame.sprite.Sprite):
         #   -wrong data types
         #   -overflow
         """
+        TESTFUNC:
+        
         import sys
 
         player.temp = [2.1, -1.7, 2.1, -1.7, "speedx", sys.float_info.max]
@@ -294,6 +296,9 @@ class Ball(pygame.sprite.Sprite):
         #   num is zero
         #   num is complex
         """
+        TESTFUNC:
+        
+        num = ["num", 0, 2 + 3j]
         num = [2.7, -5.3, "num", 0, 2 + 3j]
         message = "Return value of sign({num}) is {value}"
 
